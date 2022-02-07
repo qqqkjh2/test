@@ -4,7 +4,7 @@ class Todo extends React.Component {
     constructor(props){
         super(props);
         this.state = {item : props.item};
-
+        
     }
 
     render(){
