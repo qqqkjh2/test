@@ -11,7 +11,7 @@ class App extends React.Component{
     this.state = {
       item : [
         {id: "0", title :"Hello world", done :true},
-        {id: "1", title :"안녕2", done :false}    
+        {id: "1", title :"안녕23", done :false}
       ]
     };
   }
