@@ -1,25 +1,47 @@
 import logo from './logo.svg';
 import './App.css';
+import Todo from './Todo'
+import AddTodo from './AddTodo'
+import React from 'react';
+import { Paper, List, Container } from '@material-ui/core';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      item : [
+        {id: "0", title :"Hello world", done :true},
+        {id: "1", title :"안녕2", done :false}    
+      ]
+    };
+  }
+
+
+  render(){
+    let todoItems = this.state.item.length > 0 && (
+      <Paper style={{margin:16}}>
+          <List>
+              {this.state.item.map((item,idx) => (
+                     <Todo item={item} key={item.id} />
+              ))}
+          </List>
+      </Paper>
+    )
+    
+   
+
+    return (
+      <div className="App">
+        <Container>
+          <AddTodo/>
+          <div className='TodoList'>{todoItems}</div>
+        </Container>
+      </div>
+    );
+  }
+
+
 }
+
 
 export default App;
